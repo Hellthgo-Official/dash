@@ -1,0 +1,54 @@
+[debug] [2023-03-30T18:08:27.739Z] ----------------------------------------------------------------------
+[debug] [2023-03-30T18:08:27.742Z] Command:       /home/samuel/.nvm/versions/node/v14.20.1/bin/node /home/samuel/.nvm/versions/node/v14.20.1/bin/firebase init
+[debug] [2023-03-30T18:08:27.742Z] CLI Version:   11.22.0
+[debug] [2023-03-30T18:08:27.742Z] Platform:      linux
+[debug] [2023-03-30T18:08:27.742Z] Node Version:  v14.20.1
+[debug] [2023-03-30T18:08:27.829Z] Time:          Thu Mar 30 2023 19:08:27 GMT+0100 (West Africa Standard Time)
+[debug] [2023-03-30T18:08:27.830Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-03-30T18:08:27.857Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-03-30T18:08:27.912Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-03-30T18:08:27.913Z] > authorizing via signed-in user (samuelaholu15@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/samuel/Documents/GitHub/dash
+
+[debug] [2023-03-30T18:08:38.882Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2023-03-30T18:08:38.883Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2023-03-30T18:12:11.473Z] > refreshing access token with scopes: []
+[debug] [2023-03-30T18:12:11.477Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-03-30T18:12:11.478Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-03-30T18:12:12.763Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-03-30T18:12:12.763Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-03-30T18:12:12.871Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2023-03-30T18:12:12.871Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"healthgodash","name":"healthgodash"}
+[debug] [2023-03-30T18:12:20.432Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 200
+[debug] [2023-03-30T18:12:20.432Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"name":"operations/cp.7139917595256711665"}
+[debug] [2023-03-30T18:12:20.437Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.7139917595256711665 [none]
+[debug] [2023-03-30T18:12:21.611Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.7139917595256711665 200
+[debug] [2023-03-30T18:12:21.611Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.7139917595256711665 {"name":"operations/cp.7139917595256711665","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","ready":true},"done":true,"error":{"code":8,"message":"The project cannot be created because you have exceeded your allotted project quota.","details":[{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"description":"The project cannot be created because you have exceeded your allotted project quota."}]}]}}
+[debug] [2023-03-30T18:12:22.185Z] FirebaseError: The project cannot be created because you have exceeded your allotted project quota.
+    at OperationPoller.poll (/home/samuel/.nvm/versions/node/v14.20.1/lib/node_modules/firebase-tools/lib/operation-poller.js:24:19)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at async createCloudProject (/home/samuel/.nvm/versions/node/v14.20.1/lib/node_modules/firebase-tools/lib/management/projects.js:186:29)
+    at async createFirebaseProjectAndLog (/home/samuel/.nvm/versions/node/v14.20.1/lib/node_modules/firebase-tools/lib/management/projects.js:45:9)
+    at async promptAndCreateNewProject (/home/samuel/.nvm/versions/node/v14.20.1/lib/node_modules/firebase-tools/lib/init/features/project.js:32:12)
+    at async doSetup (/home/samuel/.nvm/versions/node/v14.20.1/lib/node_modules/firebase-tools/lib/init/features/project.js:88:27)
+    at async init (/home/samuel/.nvm/versions/node/v14.20.1/lib/node_modules/firebase-tools/lib/init/index.js:36:9)
+[error] 
+[error] Error: Failed to create project. See firebase-debug.log for more info.
